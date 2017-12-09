@@ -11,5 +11,10 @@ def derivative(input_matrix, actual_values_vec):
   teta =   np.dot(inv(np.dot(np.transpose(input_matrix), input_matrix)) ,np.dot(np.transpose(input_matrix), actual_values_vec))
   return teta
 
-
+def gradient_descent(param_vec, input_matrix, actual_value_vec):
+    alpha = 0.01
+    for i in range(0,10):
+        grad = (np.dot(np.dot(np.transpose(input_matrix), input_matrix), param_vec) - (2 * np.dot(np.transpose(input_matrix), actual_value_vec)))
+        param_vec = param_vec - alpha * grad
+    return param_vec
 
